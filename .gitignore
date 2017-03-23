@@ -8,29 +8,29 @@
 
 # Autotools temporaries
 autom4te.cache/
+build-aux/
+m4/
 autoscan.log
-compile
 config.status
-config.guess
-config.sub
 config.log
 configure
 configure.scan
-depcomp
-missing
 Makefile
 Makefile.in
 aclocal.m4
-install-sh
 stamp-h1
-ltmain.sh
+libtool
 
 # Configuration header
 config.hpp
 
 # Targets
+libhello.la
 
 # Build temporaries
 src/.deps/
+src/.libs/
 src/.dirstamp
 src/*.o
+src/*.lo
+.libs/
