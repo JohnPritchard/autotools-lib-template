@@ -2,7 +2,7 @@ AC_PREREQ([2.69])
 
 AC_INIT([libhello], [1.0], [http://libhello.org/])
 AC_CONFIG_AUX_DIR([build-aux])
-AC_CONFIG_MACRO_DIRS([m4])
+AC_CONFIG_MACRO_DIR([m4])
 
 AM_INIT_AUTOMAKE([foreign dist-bzip2 subdir-objects 1.14])
 AC_CONFIG_FILES([Makefile])
