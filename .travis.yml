@@ -1,0 +1,19 @@
+language:
+    - cpp
+dist:
+    - trusty
+compiler:
+    - gcc
+    - clang
+before_install:
+    - sudo apt-get -qq update
+    - sudo apt-get install -y autoconf-archive
+    - sudo apt-get install -y libboost-all-dev
+    - autoconf --version
+    - automake --version
+script:
+    - autoreconf --install
+    - ./configure --prefix=/tmp/libhello
+    - make V=1 clean all dist
+    - find /tmp/libhello
+    - tar tf libhello.tar.gz
