@@ -15,5 +15,6 @@ script:
     - autoreconf --install
     - ./configure --prefix=/tmp/libhello
     - make V=1 clean all install dist
+after_success:
     - find /tmp/libhello
     - tar tf libhello-*.tar.gz
