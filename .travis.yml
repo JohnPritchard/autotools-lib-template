@@ -7,8 +7,10 @@ compiler:
     - clang
 before_install:
     - sudo apt-get -qq update
+install:
     - sudo apt-get install -y autoconf-archive
     - sudo apt-get install -y libboost-all-dev
+before_script:
     - autoconf --version
     - automake --version
 script:
