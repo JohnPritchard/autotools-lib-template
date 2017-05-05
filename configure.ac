@@ -1,6 +1,6 @@
 AC_PREREQ([2.69])
 
-AC_INIT([libhello], [1.0], [http://libhello.org/])
+AC_INIT([libhello], [1.0.0], [http://libhello.org/])
 AC_CONFIG_AUX_DIR([build-aux])
 AC_CONFIG_MACRO_DIR([m4])
 
