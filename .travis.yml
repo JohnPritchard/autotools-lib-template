@@ -1,22 +1,31 @@
 language:
-    - cpp
+- cpp
 dist:
-    - trusty
+- trusty
 compiler:
-    - gcc
-    - clang
+- gcc
+- clang
 before_install:
-    - sudo apt-get -qq update
+- sudo apt-get -qq update
 install:
-    - sudo apt-get install -y autoconf-archive
-    - sudo apt-get install -y libboost-all-dev
+- sudo apt-get install -y autoconf-archive
+- sudo apt-get install -y libboost-all-dev
 before_script:
-    - autoconf --version
-    - automake --version
+- autoconf --version
+- automake --version
 script:
-    - autoreconf --install
-    - ./configure --prefix=/tmp/libhello
-    - make V=1 clean all install dist
+- autoreconf --install
+- ./configure --prefix=/tmp/libhello
+- make V=1 clean all install dist
 after_success:
-    - find /tmp/libhello
-    - tar tf libhello-*.tar.gz
+- find /tmp/libhello
+- tar tf libhello-*.tar.gz
+deploy:
+  provider: releases
+  api_key:
+    secure: zp4JdgFQDKoDu1ogt7BJT45mMLGi/CTxWhiuzoJV1H4FpWjx+IL8TXUwIJzSCnYkk/4E/uqyiboaw4e9y76DdzOS5OGdCmWLyYvLZVYbJgTdSleGg16ZesOhy89sI/1tQ2xG+CwIwLUnzY+fvxDhcP/QP8AiRlOzOAsCxaPPAclnEucN2Htwc2o3Rxn84hLHZRXBxXChOKw/mUBo3D1qClCobX5FuEXVw2hb6V7B7OLaPGmZ1WTboCYo00UGSaJMnfFBKoeEuq99SZBGWedTIonwGl4wW0Ia/YK4RXczuDGT9zgXxm9xDeqMRn47lViVrvt8Pfoeq4VY9nEsXetfSoNk46W10jk4d1YxkLt7NCJCcBstpF53nMTyN3q84rgzDc4Jr68a8408pLkI/YypvtlITy2nFPS5aEEAsjNawJn8pbMJoG6kRGxeMqS+jkhsjeNbxzElfpAAGdbrviQKOAkkRrDm4hEPLu6HE7E9H8D7bUhWzDeohH3Ks3Uk0I/tBNKvLENHsqs1m+Da2/V/QGZ4+z1ihzO7B/rEDVqzRXlmZBBtaT3gXwOjvz4ZUpt7Koug57gO/tvrpIa2mgNLIx+wu3m1OGILgMfG0ldA6xRfNitze84pquQ/5JwvCvwKBmoeeJxnG1CqPhMp/1koafeVCxFZVoLRmZyZap8Gz0w=
+  file: libhello-1.0.0.tar.bz2
+  skip_cleanup: true
+  on:
+    tags: true
+    repo: mpoullet/autotools-lib-template
