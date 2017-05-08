@@ -15,7 +15,7 @@ before_script:
 - automake --version
 env:
   global:
-    - MAKEFLAGS="-j 2"
+    - MAKEFLAGS="-j 1"
 script:
 - autoreconf --install
 - ./configure --prefix=/tmp/libhello
