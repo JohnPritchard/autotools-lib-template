@@ -12,7 +12,7 @@ AC_PROG_CXX
 AX_CXX_COMPILE_STDCXX_11([noext], [mandatory])
 AX_CXX_HAVE_STL
 
-AX_BOOST_BASE([1.54],, [AC_MSG_ERROR([AC_PACKAGE_NAME needs Boost, but it was not found in your system])])
+AX_BOOST_BASE([1.54],, AC_MSG_ERROR([AC_PACKAGE_NAME needs Boost, but it was not found in your system]))
 
 AC_CONFIG_HEADERS([config.hpp])
 
